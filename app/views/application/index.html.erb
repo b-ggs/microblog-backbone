@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microblog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery_ujs" %>
+  <%= javascript_include_tag "underscore" %>
+  <%= javascript_include_tag "backbone" %>
+  <%= javascript_include_tag "index" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<div class="container">
+	<h1>Microblog</h1>
+</div>
+
+</body>
+</html>
