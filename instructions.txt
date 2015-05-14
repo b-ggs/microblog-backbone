@@ -1,0 +1,6 @@
+Single Page Micro Blogging app with Comments:
+No page refresh transitions for the front page
+List down the preview/snippets/teaser text (pagination limited to 10)
+On click of the preview, load the full view on the display area together with the comments
+Comments will be paginated (limited to 10 by default, shown in descending order according to creation time)
+Posts have tags, on clicking them they will redraw the list of posts to only include posts with those tags.  The functionality above should remains the same (clicking behavior, pagination behavior etc)

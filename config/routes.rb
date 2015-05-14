@@ -1,11 +1,11 @@
 Microblog::Application.routes.draw do
   root :to => 'application#index'
 
-  get 'posts' => 'post#all'
-  get 'posts/:id' => 'post#one'
-  get 'comments' => 'comment#all'
-  get 'comments/:postid' =>'comment#post'
-  get 'comments/show/:id' => 'comment#one'
+  get 'posts_json' => 'post#all'
+  get 'posts_json/:id' => 'post#one'
+  get 'comments_json' => 'comment#all'
+  get 'comments_json/:postid' =>'comment#post'
+  get 'comments_json/show/:id' => 'comment#one'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
