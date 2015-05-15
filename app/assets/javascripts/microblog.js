@@ -5,7 +5,7 @@ var microblog = new (Backbone.Router.extend({
 	},
 	index: function(){
 		var postList = new PostList();
-		postList.comparator = reverseSortBy(postList.comparator);
+		// postList.comparator = reverseSortBy(postList.comparator);
 		var postListView;
 		var postListRender = function(){
 		    postListView = new PostListView({ collection: postList });
@@ -13,7 +13,9 @@ var microblog = new (Backbone.Router.extend({
 		};
 		postList.on('reset', postListRender);
 		postList.fetch({
-			success: function(){ postListRender() }
+			success: function(){
+				postListRender();
+			}
 		});
 	},
 	show: function(postId){
@@ -23,18 +25,32 @@ var microblog = new (Backbone.Router.extend({
 			postFullView.render();
 		};
 		postItem.fetch({
-			success: function(){ postFullViewRender() }
+			success: function(){
+				postFullViewRender();
+			}
 		});
+
 		var commentList = new CommentList();
-		commentList.comparator = reverseSortBy(postList.comparator);
+		commentList.url = "/comments/" + postId;
 		var commentListRender = function(){
-			var commentListView = new CommentListView( {collection: commentList} );
+			var commentListView = new CommentListView({ collection: commentList });
 			commentListView.render();
 		};
 		commentList.fetch({
-			success: function(){ 
-				console.log(commentList);
+			success: function(){
 				commentListRender();
+			}
+		});
+
+		var tagList = new TagList();
+		tagList.url = "/tags/post/" + postId;
+		var tagListRender = function(){
+			var tagListView = new TagListView({ collection: tagList });
+			tagListView.render();
+		};
+		tagList.fetch({
+			success: function(){
+				tagListRender();
 			}
 		});
 	}

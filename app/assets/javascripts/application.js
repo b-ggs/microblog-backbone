@@ -17,4 +17,5 @@
 //= require helper
 //= require post
 //= require comment
+//= require tag
 //= require microblog
