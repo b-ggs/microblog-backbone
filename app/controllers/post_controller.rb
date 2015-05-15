@@ -13,12 +13,25 @@ class PostController < ApplicationController
 		render :json => @posts
 	end
 
+	def tag
+		@posts = []
+		tag = params[:tag] # => "miscellaneous"
+		
+		# get tagid
+		tagid = Tag.where(name: tag)
+
+		#get postids with tagid
+		postids = PostTag.where(tagid: tagid)
+
+		postids.each do |postid|
+			@posts.push(Post.find(postid.postid))
+		end 
+		
+		render :json => @posts
+	end
+
 	def one
 		@post = Post.find(params[:id])
 		render :json => @post
-	end
-
-	def tag
-		
 	end
 end
