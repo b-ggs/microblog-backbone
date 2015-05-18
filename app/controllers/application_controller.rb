@@ -14,12 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   def populate
-  	Post.create(id: 1, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
-  	Post.create(id: 2, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
-  	Post.create(id: 3, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
-  	Post.create(id: 4, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
-  	Post.create(id: 5, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
-  	Post.create(id: 6, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 1, author:'boggs', title:'Sample post rails', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 2, author:'boggs', title:'Sample post rails', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 3, author:'boggs', title:'Sample post miscellaneous', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 4, author:'boggs', title:'Sample post miscellaneous', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 5, author:'boggs', title:'Sample post technology', preview:'This is a preview.', text: 'This is the full content.')
+  	Post.create(id: 6, author:'boggs', title:'Sample post technology', preview:'This is a preview.', text: 'This is the full content.')
   	Post.create(id: 7, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
   	Post.create(id: 8, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
   	Post.create(id: 9, author:'boggs', title:'Sample post', preview:'This is a preview.', text: 'This is the full content.')
@@ -51,14 +51,14 @@ class ApplicationController < ActionController::Base
   	Tag.create(id: 1, name: 'miscellaneous')
   	Tag.create(id: 2, name: 'technology')
   	Tag.create(id: 3, name: 'rails')
-  	Tag.create(id: 4, name: 'hello')
+  	Tag.create(id: 4, name: 'test')
 
-  	PostTag.create(tagid:1, postid:1)
-  	PostTag.create(tagid:2, postid:1)
+  	PostTag.create(tagid:1, postid:3)
+  	PostTag.create(tagid:1, postid:4)
   	PostTag.create(tagid:3, postid:1)
-  	PostTag.create(tagid:4, postid:1)
-
-  	PostTag.create(tagid:1, postid:2)
+  	PostTag.create(tagid:3, postid:2)
+  	PostTag.create(tagid:2, postid:5)
+  	PostTag.create(tagid:2, postid:6)
 
   	redirect_to '/'
   end

@@ -1,7 +1,8 @@
 var microblog = new (Backbone.Router.extend({
 	routes: {
 		"": "index",
-		"post/:postId": "show"
+		"post/:postId": "show",
+		"tag/:tag" : "posttag"
 	},
 	index: function(){
 		var postList = new PostList();
@@ -51,6 +52,23 @@ var microblog = new (Backbone.Router.extend({
 		tagList.fetch({
 			success: function(){
 				tagListRender();
+			}
+		});
+	},
+	posttag: function(tag){
+		var postTagList = new PostTagList();
+		postTagList.url = "/posts/tag/" + tag;
+		// postList.comparator = reverseSortBy(postList.comparator);
+		var postTagListView;
+		var postTagListRender = function(){
+		    postTagListView = new PostTagListView({ collection: postTagList });
+		    postTagListView.tag = tag;
+		    postTagListView.render();
+		};
+		postTagList.on('reset', postTagListRender);
+		postTagList.fetch({
+			success: function(){
+				postTagListRender();
 			}
 		});
 	}

@@ -8,7 +8,7 @@
 class PostController < ApplicationController
 	def all
 		@posts = Post.all(
-			:limit => 5,
+			#:limit => 5,
 			).to_a
 		render :json => @posts
 	end

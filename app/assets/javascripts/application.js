@@ -16,6 +16,7 @@
 //= require backbone
 //= require helper
 //= require post
+//= require posttag
 //= require comment
 //= require tag
 //= require microblog

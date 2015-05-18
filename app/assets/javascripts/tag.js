@@ -17,7 +17,7 @@ var TagItem = Backbone.Model.extend({
 });
 
 var TagView = Backbone.View.extend({
-	template: _.template("<i>#<%= name %></i> "),
+	template: _.template("<i><a href=\"#tag/<%= name %>\">#<%= name %></a></i> "),
 	render: function(){
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
